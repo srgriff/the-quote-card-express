@@ -1,19 +1,17 @@
 "use strict"
 async function getRandomImage() {
-    const client_id = "YOUR_ACCESS_KEY";
-    const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
+    const client_id = "Ilz_bzi2fWxe4_At5sayGkg4dbSkTzQ4Nmw3fkt4l44";
+  const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
     try {
         const response = await fetch(endpoint);
-        const returnedData = await response.json()
-        console.log(returnedData)
+        const returnedData = await response.json();
+        const receivedPhotoUrl = returnedData.urls.regular;
+
+        const imgDiv = document.querySelector(".background-img");
+        imgDiv.style.backgroundImage = `url("${receivedPhotoUrl}")`;
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
-
-}
-
-getRandomImage();
-
 
 
 /* const elements = {
