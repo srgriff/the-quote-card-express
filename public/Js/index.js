@@ -12,6 +12,8 @@ async function getRandomImage() {
     } catch (error) {
         console.error(error);
     }
+}
+getRandomImage();
 
 
 /* const elements = {
