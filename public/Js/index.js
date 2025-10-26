@@ -1,4 +1,25 @@
 "use strict"
+
+
+
+async function getRandomImage() {
+    const endpoint = "http://localhost:8080/api/v1/getRandomImage";
+    try {
+        const response = await fetch(endpoint);
+        const returnedData = await response.json();
+        const receivedPhotoUrl = returnedData.data;
+
+        const imgDiv = document.querySelector(".background-img");
+        imgDiv.style.backgroundImage = `url(${receivedPhotoUrl})`;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getRandomImage();
+
+
+/*
 async function getRandomImage() {
     const client_id = "Ilz_bzi2fWxe4_At5sayGkg4dbSkTzQ4Nmw3fkt4l44";
   const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
@@ -13,7 +34,7 @@ async function getRandomImage() {
         console.error(error);
     }
 }
-getRandomImage();
+getRandomImage(); */
 
 
 /* const elements = {
